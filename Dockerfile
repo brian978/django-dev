@@ -7,12 +7,11 @@ RUN mkdir /usr/src/app-scripts
 
 WORKDIR /usr/src/app
 COPY requirements.txt ./
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-COPY init.py /usr/src/app-scripts/bootstrap.py
-RUN chmod 775 /usr/src/app-scripts/bootstrap.py
-
-RUN python /usr/src/app-scripts/bootstrap.py
+COPY startup.py /usr/src/app-scripts/run.py
+RUN chmod 775 /usr/src/app-scripts/run.py
 
 EXPOSE 8000
-CMD ["python", "/usr/src/app/manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "/usr/src/app-scripts/run.py"]
