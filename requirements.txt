@@ -2,4 +2,4 @@ Django
 pip
 setuptools
 mysqlclient
-pyodbc
+django-pyodbc-azure
