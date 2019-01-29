@@ -1,5 +1,6 @@
 Django
 pip
 setuptools
+djangorestframework
 mysqlclient
 django-pyodbc-azure
