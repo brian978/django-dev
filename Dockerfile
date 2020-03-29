@@ -14,6 +14,11 @@ RUN apt-get update \
     && ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools \
     && apt-get install -y vim unixodbc-dev
 
+# Setup locale
+RUN sed -i -e "s/# en_US.UTF-8.*/en_US.UTF-8 UTF-8/" /etc/locale.gen && \
+    sed -i -e "s/# ro_RO.UTF-8.*/ro_RO.UTF-8 UTF-8/" /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales
+
 # Setup the image env and scripts
 RUN mkdir /usr/src/app
 RUN mkdir /usr/src/app-scripts
