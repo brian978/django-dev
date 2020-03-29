@@ -2,8 +2,8 @@ FROM python:3.7
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Prequisites for the windows packages
-RUN apt-get update && apt-get install -y apt-transport-https
+# Prequisites
+RUN apt-get update && apt-get install -y apt-transport-https apt-utils locales
 
 # Add the required windows packages
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
