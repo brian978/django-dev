@@ -1,6 +1,6 @@
-Django
 pip
 setuptools
+Django
 djangorestframework
-mysqlclient
-django-pyodbc-azure
+mysql-connector-python
+django-mssql-backend
